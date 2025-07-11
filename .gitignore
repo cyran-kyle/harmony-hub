@@ -3,6 +3,6 @@ build
 .env
 .DS_Store
 
-harmonyhub_backend/
+
 public.zip
 src.zip

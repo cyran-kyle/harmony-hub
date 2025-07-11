@@ -2,7 +2,14 @@
 // config.php
 
 // Allow requests from your React development server
-header("Access-Control-Allow-Origin: http://localhost:3000, https://harmony-ngfj55u95-cyrans-projects.vercel.app");
+$allowed_origins = [
+    'http://localhost:3000',
+    'https://harmony-ngfj55u95-cyrans-projects.vercel.app'
+];
+
+if (isset($_SERVER['HTTP_ORIGIN']) && in_array($_SERVER['HTTP_ORIGIN'], $allowed_origins)) {
+    header("Access-Control-Allow-Origin: " . $_SERVER['HTTP_ORIGIN']);
+}
 header("Access-Control-Allow-Methods: GET, POST, PUT, DELETE, OPTIONS");
 header("Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With");
 header("Content-Type: application/json; charset=UTF-8");
